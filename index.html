@@ -183,7 +183,7 @@
         <body style="background-color:#FFFFFF;margin-left:50px;"> 
     <hr> <h3 id="Introduction"> Introduction </h3>
  
-      <p>
+      <p id="Introduction">
         The Kepler Space Telescope was a vital piece of technology to allow scientists to observe planets we previously wouldn’t have known was there. The Kepler space mission began development in 1983 with its main goal being to find other planets. 18 years later it launched on March 9th,  2009. Within this initial launch period it was discovered that the telescope had already discovered 5 exoplanets using the transit method already proving to be a great success. The telescope was originally designed to stay in space for 3 and a half years however with the mission being a huge success NASA decided to keep it in space until eventually on October 30th, 2018 it ran out of fuel and was retired after identifying over  2000 exoplanets. 
       </p>
           
@@ -191,7 +191,7 @@
     <body style="background-color:#FFFFFF;margin-left:50px;">
     <hr> <h3 id="The Transit Method"> The Transit Method </h3>
  
-      <p>
+      <p id="The_Transit_Method">
         The Kepler space telescope used the Transit method to find other exoplanets. This method involved observing stars and waiting to see if the light dimmed due to a planet passing in front of the star. This dimming of the light allows us to tell the orbit and the size of the planet through the frequency of the dimming and the length of duration of it. On a graph this can be seen via a dip in the brightness over time. This can be seen in the figure below which is taken from a different research project looking into the exoplanet Wasp-52b. Despite being used this method has its drawbacks as you could imagine a star is very big whereas the planet would be smaller. This means that the dimming of the light wouldn’t be easy to spot. This meant that the Kepler space telescope had to be equipped with very sensitive cameras to spot this change. Another disadvantage to this method is when observing a planet in a multi star system it is difficult to know what is causing this dip in the light. An example of a planet which was ‘forgotten’ due to this is the KOI-5B planet which exists in a triple star system. David Ciardi, Chief Scientist of NASA’s science institute said ‘KOI-5Ab got abandoned because it was complicated, and we had thousands of candidates’ which implies that this triple-star system caused many issues into this discovery. In 2018 the Transiting exoplanet survey satellite observed the KOI-5B planet and finally showed proof that the planet existed.
       </p>
          <p align="center">
@@ -199,7 +199,7 @@
 </p>
       <body style="background-color:#FFFFFF;margin-left:50px;">
     <hr> <h3 id="Important Discoveries"> Important Discoveries </h3>
-        <p>
+        <p id="Important_Discoveries">
           Upon the Kepler Space Telescopes retirement day, the telescope had managed to find 2662 exoplanets. From this number (with the number varying due to more research) currently of 2025 there is 9-11 of these exoplanets which are in the habitable zone of their stars. The habitable zone (also known as the goldilock zone) is important as it is where a planet is at the perfect distance from its star where the water doesn’t freeze/boil away. The first of these which were found is kepler-22b. This planet was discovered in December 2011 and was placed into the super earth category due to the planet’s radius being 2.1x the radius of earths. However, kepler-22b is 15% closer to its star than earth leading to much hotter temperatures so many would think it of being unhabitable however it is. The star which the planet orbits shine 25% less bright than our sun. Due to this water can exist on the surface which many scientists believe is the case. At this point in time scientists understand that if a planet has water on its surface, it has a higher chance for life to begin. Another interesting planet which was discovered is Kepler-16b. This was the first habitable planet discovered which resembled the fictional planet from Star Wars Tatooine where Luke Skywalker grew up as it has 2 suns like in the films. One of these suns is a red dwarf star. This type of star is cooler than others but despite this it emits more UV radiation due to being more active. Kepler-16b is around Saturn’s size and despite having 2 stars is one of the chillier habitable planets found. Overall, the most important discovery from this telescope is that it is theorised that there are more planets than stars in our galaxy and that small stars have a 20-50% chance of having a small rocky planet similar size to earth.
         </p>
         <table>
@@ -213,7 +213,7 @@
             <body style="background-color:#FFFFFF;margin-left:50px;">
     <hr> <h3 id="Kepler's Legacy"> Kepler's Legacy </h3>
  
-      <p>
+      <p id="Kepler's_Legacy">
       Even after the Kepler telescopes ‘death’ in 2018 many questions had still been left unanswered, and more questions arose. This led to more telescopes being created to continue this legacy such as the TESS and PLATO. Both of which use the transit method similar to the Kepler telescope. One example of a question which was left not fully resolved was that of the KOI-5B planet which was found by the TESS. Throughout Kepler’s lifespan there were also many at the time trying to determine discoveries at the time such as in 2013 the European Space Agency’s Gaia spacecraft was launched with its purpose of aiding Kepler thought determining the distances between the planets discovered and their main stars. Overall, the Kepler telescope was a huge success and a huge step forward in the field of astrophysics due to the number of discoveries with exoplanets and discovering that there are more planets than stars in our galaxy.
       </p>
 <body style="background-color:#FFFFFF;margin-left:50px;">
@@ -292,6 +292,35 @@
     // Initial load to display the time on page load
     window.onload = getLastUpdatedTime;
 </script>
-  
+  <!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId, outputId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId).textContent;
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/);
+    // Count the words
+    const wordCount = wordArray.length;
+    // Return the word count for summing purposes
+    return wordCount;
+  }
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for each section and accumulate the total
+    const IntroductionCount = displayWordCount("Introduction");
+    const TranistCount = displayWordCount("The_Transit_Method");
+    const DiscoveriesCount = displayWordCount("Important_Discoveries");
+    const LegacyCount = displayWordCount("Kepler's_Legacy");
+    // Calculate the sum of all selected sections
+    const totalWordCount = IntroductionCount + TransitCount + DiscoveriesCount + LegacyCount;
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  // Run the function for specific sections and display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
 
 </html>
